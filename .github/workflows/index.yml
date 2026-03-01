@@ -1,5 +1,5 @@
 #Name of your wokrflow
-name: Details
+name: Hello
 
 #Push changes on main branch
 on:
