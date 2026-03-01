@@ -31,6 +31,8 @@ jobs:
       #static artifcats
       - name: Upload static files
         uses: actions/upload-pages-artifact@v4
+        with:
+          path: "."
 
       #Deploy
       - name: Deploy
