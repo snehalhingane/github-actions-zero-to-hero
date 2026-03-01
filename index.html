@@ -17,12 +17,12 @@
 
 body{
     font-family:'Poppins',sans-serif;
-    background:#0f0f0f;
+    background:#0b0f17;
     color:#fff;
     overflow-x:hidden;
 }
 
-/* Animated DevOps Grid Background */
+/* Animated DevOps Grid */
 body::before{
     content:"";
     position:fixed;
@@ -31,40 +31,39 @@ body::before{
     background:
         linear-gradient(rgba(0,255,170,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,255,170,0.05) 1px, transparent 1px);
-    background-size:40px 40px;
+    background-size:35px 35px;
     z-index:-1;
-    animation:gridMove 15s linear infinite;
+    animation:gridMove 20s linear infinite;
 }
 
 @keyframes gridMove{
     from{background-position:0 0;}
-    to{background-position:40px 40px;}
+    to{background-position:35px 35px;}
 }
 
 /* Navbar */
 nav{
     position:fixed;
     width:100%;
-    background:rgba(0,0,0,0.7);
-    backdrop-filter:blur(10px);
-    padding:15px 0;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(8px);
+    padding:15px;
     text-align:center;
     z-index:1000;
 }
 
 nav a{
     color:#00ffaa;
-    margin:0 20px;
+    margin:0 15px;
     text-decoration:none;
     font-weight:600;
-    transition:0.3s;
 }
 
 nav a:hover{
     color:#00e0ff;
 }
 
-/* Hero Section */
+/* Hero */
 header{
     height:100vh;
     display:flex;
@@ -75,37 +74,27 @@ header{
     padding:20px;
 }
 
-/* Terminal Box */
+/* Terminal */
 .terminal{
     background:#111;
     border-radius:10px;
     padding:30px;
     width:90%;
     max-width:800px;
-    box-shadow:0 0 20px rgba(0,255,170,0.3);
+    box-shadow:0 0 25px rgba(0,255,170,0.3);
     font-family:'Fira Code', monospace;
 }
 
-.terminal-header{
-    display:flex;
-    gap:8px;
-    margin-bottom:15px;
-}
-
-.dot{
-    width:12px;
-    height:12px;
-    border-radius:50%;
-}
-
-.red{background:#ff5f56;}
-.yellow{background:#ffbd2e;}
-.green{background:#27c93f;}
-
-.terminal p{
+.typing{
     color:#00ffaa;
+    font-size:1.1rem;
+}
+
+/* Live Clock */
+.clock{
+    margin-top:20px;
     font-size:1rem;
-    line-height:1.8;
+    color:#00e0ff;
 }
 
 /* Sections */
@@ -113,17 +102,15 @@ section{
     padding:100px 10%;
 }
 
-section h2{
+h2{
     text-align:center;
-    margin-bottom:50px;
-    font-size:2rem;
+    margin-bottom:40px;
     color:#00ffaa;
 }
 
-/* Glass Card */
+/* Cards */
 .card{
     background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
     padding:25px;
     border-radius:12px;
     margin-bottom:30px;
@@ -132,117 +119,168 @@ section h2{
 }
 
 .card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 0 20px rgba(0,255,170,0.3);
+    transform:translateY(-8px);
+    box-shadow:0 0 25px rgba(0,255,170,0.3);
 }
 
-/* Skills Grid */
-.skills-grid{
+/* Metrics */
+.metrics{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:20px;
+    text-align:center;
 }
 
-.skill{
+.metric{
     background:#111;
     padding:20px;
     border-radius:10px;
-    text-align:center;
     border:1px solid rgba(0,255,170,0.2);
-    transition:0.3s;
 }
 
-.skill:hover{
-    background:#00ffaa;
-    color:#000;
-    font-weight:600;
+.metric h3{
+    font-size:2rem;
+    color:#00ffaa;
 }
 
-/* Footer */
+/* Pipeline Animation */
+.pipeline{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin-top:30px;
+}
+
+.stage{
+    padding:15px 25px;
+    background:#111;
+    border-radius:8px;
+    border:1px solid #00ffaa;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 5px #00ffaa;}
+    50%{box-shadow:0 0 20px #00ffaa;}
+    100%{box-shadow:0 0 5px #00ffaa;}
+}
+
 footer{
     text-align:center;
     padding:20px;
     background:#111;
     margin-top:50px;
-    font-size:0.9rem;
     color:#aaa;
 }
-
 </style>
 </head>
 
 <body>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+<a href="#about">About</a>
+<a href="#metrics">Metrics</a>
+<a href="#pipeline">CI/CD</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <header>
-    <div class="terminal">
-        <div class="terminal-header">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
-        </div>
-        <p>$ whoami</p>
-        <p>Snehal Hingane</p>
-        <p>$ role</p>
-        <p>Senior DevOps Engineer | Cloud Architect | CI/CD Specialist</p>
-        <p>$ passion</p>
-        <p>Automation • Scalability • Reliability • Performance</p>
-    </div>
+<div class="terminal">
+<div class="typing" id="typing"></div>
+<div class="clock" id="clock"></div>
+</div>
 </header>
 
 <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        <p>
-            Senior DevOps Engineer with expertise in building scalable cloud infrastructure,
-            designing automated CI/CD pipelines, container orchestration, and infrastructure as code.
-            Strong experience in enterprise-level deployments and performance optimization.
-        </p>
-    </div>
+<h2>About Me</h2>
+<div class="card">
+<p>
+Senior DevOps Engineer specializing in AWS cloud architecture,
+CI/CD automation, Kubernetes orchestration, Infrastructure as Code,
+and enterprise system reliability.
+</p>
+</div>
 </section>
 
-<section id="skills">
-    <h2>Tech Stack</h2>
-    <div class="skills-grid">
-        <div class="skill">AWS Cloud</div>
-        <div class="skill">Docker</div>
-        <div class="skill">Kubernetes</div>
-        <div class="skill">Terraform</div>
-        <div class="skill">Jenkins</div>
-        <div class="skill">Linux</div>
-        <div class="skill">Shell Scripting</div>
-        <div class="skill">Monitoring & Logging</div>
-    </div>
+<section id="metrics">
+<h2>DevOps Live Metrics</h2>
+<div class="metrics">
+<div class="metric">
+<h3 id="exp">0</h3>
+<p>Years Experience</p>
+</div>
+<div class="metric">
+<h3>50+</h3>
+<p>CI/CD Pipelines Built</p>
+</div>
+<div class="metric">
+<h3>100+</h3>
+<p>Production Deployments</p>
+</div>
+<div class="metric">
+<h3>99.9%</h3>
+<p>System Uptime</p>
+</div>
+</div>
 </section>
 
-<section id="projects">
-    <h2>Featured Project</h2>
-    <div class="card">
-        <h3>Audio to Text Language Translator</h3>
-        <p>
-            Built a cloud-native application leveraging AWS services to convert audio/video into
-            multi-language text with scalable backend and automated deployment pipeline.
-        </p>
-    </div>
+<section id="pipeline">
+<h2>CI/CD Pipeline</h2>
+<div class="pipeline">
+<div class="stage">Code</div>
+<div class="stage">Build</div>
+<div class="stage">Test</div>
+<div class="stage">Deploy</div>
+<div class="stage">Monitor</div>
+</div>
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-        <p>Email: snehal@example.com</p>
-        <p>LinkedIn: linkedin.com/in/snehal</p>
-    </div>
+<h2>Contact</h2>
+<div class="card">
+<p>Email: snehal@example.com</p>
+<p>LinkedIn: linkedin.com/in/snehal</p>
+</div>
 </section>
 
 <footer>
-    © 2026 Snehal Hingane | DevOps Engineering Portfolio 🚀
+© 2026 Snehal Hingane | DevOps Engineering Portfolio 🚀
 </footer>
+
+<script>
+// Typing Effect
+const text = "$ whoami\nSnehal Hingane\n$ role\nSenior DevOps Engineer\n$ skills\nAWS | Kubernetes | Terraform | Jenkins | Docker\n";
+let i = 0;
+function typing(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing,30);
+    }
+}
+typing();
+
+// Live Clock
+function updateClock(){
+    const now = new Date();
+    document.getElementById("clock").innerHTML = "Local Time: " + now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+// Experience Counter
+let exp = 0;
+let experienceYears = 5; // change as per your real experience
+let interval = setInterval(()=>{
+    if(exp < experienceYears){
+        exp++;
+        document.getElementById("exp").innerText = exp;
+    } else {
+        clearInterval(interval);
+    }
+},500);
+</script>
 
 </body>
 </html>
