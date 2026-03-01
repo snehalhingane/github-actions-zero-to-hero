@@ -1,149 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Snehal Hingane | Senior DevOps Engineer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snehal Hingane | Senior DevOps Engineer</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #1f2937, #111827);
-            color: white;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c1c);
+    background-size:400% 400%;
+    animation:gradientBG 15s ease infinite;
+    color:#fff;
+}
 
-        header p {
-            font-size: 1.2rem;
-            color: #d1d5db;
-        }
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-        nav {
-            background: #0f172a;
-            padding: 15px;
-            text-align: center;
-        }
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    padding:15px 0;
+    text-align:center;
+    z-index:1000;
+}
 
-        nav a {
-            color: #38bdf8;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
+nav a{
+    color:#00e0ff;
+    margin:0 20px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
 
-        nav a:hover {
-            color: #facc15;
-        }
+nav a:hover{
+    color:#ffffff;
+}
 
-        section {
-            padding: 50px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+/* HERO */
+header{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
 
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-        }
+header h1{
+    font-size:3.5rem;
+    margin-bottom:10px;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #0f172a;
-            font-size: 0.9rem;
-            color: #9ca3af;
-        }
+header span{
+    color:#00e0ff;
+}
 
-        button {
-            background: #38bdf8;
-            border: none;
-            padding: 10px 20px;
-            color: black;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+header p{
+    font-size:1.3rem;
+    opacity:0.9;
+    margin-bottom:30px;
+}
 
-        button:hover {
-            background: #facc15;
-        }
-    </style>
+.btn{
+    background:#00e0ff;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#fff;
+}
+
+/* SECTION */
+section{
+    padding:100px 10%;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2.2rem;
+}
+
+/* GLASS CARD */
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,0.12);
+}
+
+/* SKILLS GRID */
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.skill-item{
+    background:rgba(0,224,255,0.1);
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    font-weight:500;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:rgba(0,0,0,0.6);
+    font-size:0.9rem;
+    margin-top:50px;
+}
+
+</style>
 </head>
 
 <body>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <header>
-        <h1>Hello, I'm Snehal 👋</h1>
-        <p>DevOps Engineer | Cloud | CI/CD | Automation</p>
-        <button onclick="alert('Thanks for visiting my portfolio!')">Say Hello</button>
-    </header>
+<header>
+    <h1>Hello, I'm <span>Snehal Hingane</span></h1>
+    <p>Senior DevOps Engineer | Cloud Architect | CI/CD Automation Specialist</p>
+    <button class="btn" onclick="alert('Thank you for visiting my portfolio 🚀')">Let's Connect</button>
+</header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="card">
-            <p>
-                I am a passionate DevOps Engineer with experience in CI/CD pipelines, 
-                infrastructure automation, cloud platforms, and containerization. 
-                I enjoy building scalable and reliable systems.
-            </p>
-        </div>
-    </section>
+<section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+        <p>
+            Results-driven Senior DevOps Engineer with strong expertise in designing scalable cloud architectures,
+            building enterprise CI/CD pipelines, and automating infrastructure using Infrastructure as Code.
+            Passionate about reliability engineering, container orchestration, and performance optimization.
+        </p>
+    </div>
+</section>
 
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="card">
-            <ul>
-                <li>AWS & Cloud Services</li>
-                <li>Docker & Kubernetes</li>
-                <li>Jenkins & CI/CD Pipelines</li>
-                <li>Terraform & Infrastructure as Code</li>
-                <li>Linux & Shell Scripting</li>
-            </ul>
-        </div>
-    </section>
+<section id="skills">
+    <h2>Technical Expertise</h2>
+    <div class="skills-grid">
+        <div class="skill-item">AWS Cloud & Architecture</div>
+        <div class="skill-item">Docker & Kubernetes</div>
+        <div class="skill-item">Terraform (Infrastructure as Code)</div>
+        <div class="skill-item">Jenkins & CI/CD Pipelines</div>
+        <div class="skill-item">Linux & Shell Scripting</div>
+        <div class="skill-item">Monitoring & Logging</div>
+    </div>
+</section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="card">
-            <h3>Audio to Text Translator</h3>
-            <p>
-                Built cloud-based application using AWS services to convert 
-                audio/video files into text with multi-language support.
-            </p>
-        </div>
-    </section>
+<section id="projects">
+    <h2>Featured Project</h2>
+    <div class="card">
+        <h3>Audio to Text Language Translator</h3>
+        <p>
+            Designed and deployed a cloud-based application leveraging AWS services
+            to convert audio/video content into multi-language text output with scalable
+            backend architecture and automated deployment pipelines.
+        </p>
+    </div>
+</section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <div class="card">
-            <p>Email: snehal@example.com</p>
-            <p>LinkedIn: linkedin.com/in/snehal</p>
-        </div>
-    </section>
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+        <p>Email: snehal@example.com</p>
+        <p>LinkedIn: linkedin.com/in/snehal</p>
+    </div>
+</section>
 
-    <footer>
-        © 2026 Snehal Hingane | Built with ❤️
-    </footer>
+<footer>
+    © 2026 Snehal Hingane | Senior DevOps Engineer | Built with ❤️
+</footer>
 
 </body>
 </html>
