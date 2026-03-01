@@ -5,249 +5,255 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Snehal Hingane | Senior DevOps Engineer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Inter',sans-serif;
-    background:#0d1117;
-    color:#c9d1d9;
-    overflow-x:hidden;
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  min-height:100vh;
+  color:white;
+  overflow-x:hidden;
 }
 
-/* subtle animated background */
+/* Floating animated gradient blobs */
+body::before, body::after{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  filter:blur(120px);
+  z-index:-1;
+  animation:float 12s infinite alternate ease-in-out;
+}
+
 body::before{
-    content:"";
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:radial-gradient(circle at 20% 30%, rgba(88,166,255,0.08), transparent 40%),
-               radial-gradient(circle at 80% 70%, rgba(56,139,253,0.08), transparent 40%);
-    z-index:-1;
+  background:#00f5d4;
+  top:-150px;
+  left:-150px;
 }
 
-/* Navbar */
+body::after{
+  background:#00bbf9;
+  bottom:-150px;
+  right:-150px;
+}
+
+@keyframes float{
+  from{transform:translateY(0px);}
+  to{transform:translateY(60px);}
+}
+
+/* NAVBAR */
 nav{
-    position:fixed;
-    width:100%;
-    background:#161b22;
-    padding:15px;
-    text-align:center;
-    border-bottom:1px solid #30363d;
-    z-index:1000;
+  position:fixed;
+  width:100%;
+  top:0;
+  padding:20px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(15px);
+  background:rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  z-index:1000;
+}
+
+nav h3{
+  font-weight:700;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:30px;
 }
 
 nav a{
-    color:#58a6ff;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:500;
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
 }
 
 nav a:hover{
-    color:#79c0ff;
+  color:#00f5d4;
 }
 
-/* Hero */
-header{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 10%;
 }
 
-header h1{
-    font-size:3rem;
-    color:#58a6ff;
+.glass{
+  background:rgba(255,255,255,0.08);
+  padding:60px;
+  border-radius:20px;
+  backdrop-filter:blur(25px);
+  border:1px solid rgba(255,255,255,0.15);
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+  transition:0.4s ease;
 }
 
-header p{
-    margin-top:15px;
-    font-size:1.2rem;
-    max-width:600px;
+.glass:hover{
+  transform:translateY(-10px);
 }
 
-/* Sections */
+.hero h1{
+  font-size:3.5rem;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.hero span{
+  color:#00f5d4;
+}
+
+.hero p{
+  font-size:1.2rem;
+  margin-bottom:30px;
+  opacity:0.9;
+}
+
+.btn{
+  padding:14px 30px;
+  border-radius:30px;
+  border:none;
+  background:#00f5d4;
+  color:black;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:white;
+  transform:scale(1.05);
+}
+
+/* SECTIONS */
 section{
-    padding:100px 10%;
+  padding:120px 10%;
 }
 
-h2{
-    margin-bottom:40px;
-    color:#58a6ff;
-    text-align:center;
+section h2{
+  font-size:2.5rem;
+  margin-bottom:50px;
+  text-align:center;
 }
 
-/* Cards */
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
 .card{
-    background:#161b22;
-    padding:25px;
-    border-radius:8px;
-    border:1px solid #30363d;
-    margin-bottom:25px;
-    transition:0.3s;
+  background:rgba(255,255,255,0.08);
+  padding:30px;
+  border-radius:15px;
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.15);
+  transition:0.4s;
 }
 
 .card:hover{
-    border-color:#58a6ff;
+  transform:translateY(-10px) scale(1.03);
+  background:rgba(255,255,255,0.12);
 }
 
-/* Workflow Graph */
-.workflow{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
-}
-
-.job{
-    background:#0d1117;
-    padding:20px;
-    border-radius:6px;
-    border:1px solid #30363d;
-    text-align:center;
-    min-width:140px;
-    font-family:'Source Code Pro',monospace;
-    position:relative;
-}
-
-.job::after{
-    content:"✔";
-    position:absolute;
-    top:8px;
-    right:10px;
-    color:#3fb950;
-    font-weight:bold;
-}
-
-.status-running::after{
-    content:"●";
-    color:#d29922;
-    animation:blink 1s infinite;
-}
-
-@keyframes blink{
-    50%{opacity:0.3;}
-}
-
-/* Metrics */
-.metrics{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    text-align:center;
-}
-
-.metric{
-    background:#161b22;
-    padding:25px;
-    border-radius:8px;
-    border:1px solid #30363d;
-}
-
-.metric h3{
-    font-size:2rem;
-    color:#58a6ff;
-}
-
-/* Footer */
+/* FOOTER */
 footer{
-    text-align:center;
-    padding:20px;
-    background:#161b22;
-    border-top:1px solid #30363d;
-    margin-top:50px;
+  text-align:center;
+  padding:30px;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(10px);
 }
+
 </style>
 </head>
 
 <body>
 
 <nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#workflow">Workflow</a>
-<a href="#metrics">Metrics</a>
-<a href="#contact">Contact</a>
+  <h3>Snehal.dev</h3>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<header>
-<h1>Snehal Hingane</h1>
-<p>Senior DevOps Engineer specializing in Cloud Architecture, CI/CD Automation, Infrastructure as Code, and Kubernetes orchestration.</p>
-</header>
+<div class="hero">
+  <div class="glass">
+    <h1>Hi, I'm <span>Snehal Hingane</span></h1>
+    <p>Senior DevOps Engineer specializing in Cloud Architecture, CI/CD Automation, Kubernetes Orchestration & Infrastructure as Code.</p>
+    <button class="btn" onclick="window.location='#contact'">Let's Connect</button>
+  </div>
+</div>
 
 <section id="about">
-<h2>About Me</h2>
-<div class="card">
-<p>
-Experienced DevOps Engineer with strong background in AWS cloud environments,
-designing scalable infrastructure, implementing secure CI/CD pipelines,
-automating deployments using Terraform, and optimizing enterprise production systems.
-</p>
-</div>
+  <h2>About Me</h2>
+  <div class="glass">
+    <p>
+      Results-driven DevOps Engineer with strong expertise in AWS cloud infrastructure,
+      designing enterprise-grade CI/CD pipelines, automating deployments using Terraform,
+      and managing containerized workloads with Kubernetes.
+      Passionate about scalability, system reliability, and performance optimization.
+    </p>
+  </div>
 </section>
 
 <section id="skills">
-<h2>Technical Stack</h2>
-<div class="card">
-<p>AWS • Docker • Kubernetes • Terraform • Jenkins • GitHub Actions • Linux • Bash • Monitoring & Logging • CI/CD Automation</p>
-</div>
+  <h2>Core Expertise</h2>
+  <div class="grid">
+    <div class="card">AWS Cloud Architecture</div>
+    <div class="card">Docker & Kubernetes</div>
+    <div class="card">Terraform (IaC)</div>
+    <div class="card">CI/CD Pipelines (Jenkins, GitHub Actions)</div>
+    <div class="card">Linux & Shell Scripting</div>
+    <div class="card">Monitoring & Logging</div>
+  </div>
 </section>
 
-<section id="workflow">
-<h2>GitHub Actions Workflow</h2>
-<div class="workflow">
-<div class="job">Checkout Code</div>
-<div class="job">Build</div>
-<div class="job">Unit Test</div>
-<div class="job status-running">Deploy</div>
-<div class="job">Production</div>
-</div>
-</section>
-
-<section id="metrics">
-<h2>DevOps Metrics</h2>
-<div class="metrics">
-<div class="metric">
-<h3>5+</h3>
-<p>Years Experience</p>
-</div>
-<div class="metric">
-<h3>60+</h3>
-<p>CI/CD Pipelines</p>
-</div>
-<div class="metric">
-<h3>150+</h3>
-<p>Production Deployments</p>
-</div>
-<div class="metric">
-<h3>99.9%</h3>
-<p>System Uptime</p>
-</div>
-</div>
+<section id="projects">
+  <h2>Featured Project</h2>
+  <div class="glass">
+    <h3>Audio to Text Language Translator</h3>
+    <p>
+      Built a scalable cloud-native application leveraging AWS services
+      to convert audio/video into multi-language text output.
+      Integrated automated deployment pipelines and optimized infrastructure for performance.
+    </p>
+  </div>
 </section>
 
 <section id="contact">
-<h2>Contact</h2>
-<div class="card">
-<p>Email: snehal@example.com</p>
-<p>LinkedIn: linkedin.com/in/snehal</p>
-<p>GitHub: github.com/yourusername</p>
-</div>
+  <h2>Contact</h2>
+  <div class="glass">
+    <p>Email: snehal@example.com</p>
+    <p>LinkedIn: linkedin.com/in/snehal</p>
+    <p>GitHub: github.com/yourusername</p>
+  </div>
 </section>
 
 <footer>
-© 2026 Snehal Hingane | Built with GitHub Actions Inspired Theme 🚀
+  © 2026 Snehal Hingane | Senior DevOps Engineer 🚀
 </footer>
 
 </body>
