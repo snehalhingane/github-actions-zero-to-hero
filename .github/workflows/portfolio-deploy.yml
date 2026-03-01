@@ -6,9 +6,11 @@ on:
     paths:
       - '**.html'
   workflow_dispatch: 
+  
 permissions: 
   pages: write
-  id-token: write 
+  id-token: write
+  contents: read
 
 jobs:
   deploy:
