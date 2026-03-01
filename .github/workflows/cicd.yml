@@ -3,6 +3,9 @@ name: CICD
 on:
   push:
     branches: [main]
+    #when .html file change then workflow will run
+    paths:
+      - '**.html'
 
 jobs:
   Code:
