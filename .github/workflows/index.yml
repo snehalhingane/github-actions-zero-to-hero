@@ -3,7 +3,11 @@ name: Hello
 
 #Push changes on main branch
 on:
-  workflow_dispatch: 
+  push:
+    branches: [main]
+    #when .html file change then workflow will run
+    paths:
+      - '**.html'
 
 jobs:
 #This is job 1
