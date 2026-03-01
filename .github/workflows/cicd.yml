@@ -12,17 +12,20 @@ jobs:
         run: echo "code checkout"
   Build:
     runs-on: ubuntu-latest
+    needs: [Code]
     steps:
-      - name: cehckout code
+      - name: Build code
         run: echo "code build"
   Test:
     runs-on: ubuntu-latest
+    needs: [Code,Build]
     steps:
-      - name: cehckout code
+      - name: Test code
         run: echo "code Test"
   Deploy:
+    needs: [Code,Build,Test]
     runs-on: ubuntu-latest
     steps:
-      - name: cehckout code
+      - name: Deploy code
         run: echo "code Deploy"
         
