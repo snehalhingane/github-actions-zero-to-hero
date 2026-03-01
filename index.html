@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Snehal Hingane | Senior DevOps Engineer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -16,51 +16,43 @@
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#0b0f17;
-    color:#fff;
+    font-family:'Inter',sans-serif;
+    background:#0d1117;
+    color:#c9d1d9;
     overflow-x:hidden;
 }
 
-/* Animated DevOps Grid */
+/* subtle animated background */
 body::before{
     content:"";
     position:fixed;
     width:100%;
     height:100%;
-    background:
-        linear-gradient(rgba(0,255,170,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,170,0.05) 1px, transparent 1px);
-    background-size:35px 35px;
+    background:radial-gradient(circle at 20% 30%, rgba(88,166,255,0.08), transparent 40%),
+               radial-gradient(circle at 80% 70%, rgba(56,139,253,0.08), transparent 40%);
     z-index:-1;
-    animation:gridMove 20s linear infinite;
-}
-
-@keyframes gridMove{
-    from{background-position:0 0;}
-    to{background-position:35px 35px;}
 }
 
 /* Navbar */
 nav{
     position:fixed;
     width:100%;
-    background:rgba(0,0,0,0.8);
-    backdrop-filter:blur(8px);
+    background:#161b22;
     padding:15px;
     text-align:center;
+    border-bottom:1px solid #30363d;
     z-index:1000;
 }
 
 nav a{
-    color:#00ffaa;
+    color:#58a6ff;
     margin:0 15px;
     text-decoration:none;
-    font-weight:600;
+    font-weight:500;
 }
 
 nav a:hover{
-    color:#00e0ff;
+    color:#79c0ff;
 }
 
 /* Hero */
@@ -74,27 +66,15 @@ header{
     padding:20px;
 }
 
-/* Terminal */
-.terminal{
-    background:#111;
-    border-radius:10px;
-    padding:30px;
-    width:90%;
-    max-width:800px;
-    box-shadow:0 0 25px rgba(0,255,170,0.3);
-    font-family:'Fira Code', monospace;
+header h1{
+    font-size:3rem;
+    color:#58a6ff;
 }
 
-.typing{
-    color:#00ffaa;
-    font-size:1.1rem;
-}
-
-/* Live Clock */
-.clock{
-    margin-top:20px;
-    font-size:1rem;
-    color:#00e0ff;
+header p{
+    margin-top:15px;
+    font-size:1.2rem;
+    max-width:600px;
 }
 
 /* Sections */
@@ -103,24 +83,61 @@ section{
 }
 
 h2{
-    text-align:center;
     margin-bottom:40px;
-    color:#00ffaa;
+    color:#58a6ff;
+    text-align:center;
 }
 
 /* Cards */
 .card{
-    background:rgba(255,255,255,0.05);
+    background:#161b22;
     padding:25px;
-    border-radius:12px;
-    margin-bottom:30px;
-    border:1px solid rgba(0,255,170,0.2);
+    border-radius:8px;
+    border:1px solid #30363d;
+    margin-bottom:25px;
     transition:0.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(0,255,170,0.3);
+    border-color:#58a6ff;
+}
+
+/* Workflow Graph */
+.workflow{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.job{
+    background:#0d1117;
+    padding:20px;
+    border-radius:6px;
+    border:1px solid #30363d;
+    text-align:center;
+    min-width:140px;
+    font-family:'Source Code Pro',monospace;
+    position:relative;
+}
+
+.job::after{
+    content:"✔";
+    position:absolute;
+    top:8px;
+    right:10px;
+    color:#3fb950;
+    font-weight:bold;
+}
+
+.status-running::after{
+    content:"●";
+    color:#d29922;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0.3;}
 }
 
 /* Metrics */
@@ -132,46 +149,24 @@ h2{
 }
 
 .metric{
-    background:#111;
-    padding:20px;
-    border-radius:10px;
-    border:1px solid rgba(0,255,170,0.2);
+    background:#161b22;
+    padding:25px;
+    border-radius:8px;
+    border:1px solid #30363d;
 }
 
 .metric h3{
     font-size:2rem;
-    color:#00ffaa;
+    color:#58a6ff;
 }
 
-/* Pipeline Animation */
-.pipeline{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:15px;
-    margin-top:30px;
-}
-
-.stage{
-    padding:15px 25px;
-    background:#111;
-    border-radius:8px;
-    border:1px solid #00ffaa;
-    animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 5px #00ffaa;}
-    50%{box-shadow:0 0 20px #00ffaa;}
-    100%{box-shadow:0 0 5px #00ffaa;}
-}
-
+/* Footer */
 footer{
     text-align:center;
     padding:20px;
-    background:#111;
+    background:#161b22;
+    border-top:1px solid #30363d;
     margin-top:50px;
-    color:#aaa;
 }
 </style>
 </head>
@@ -180,42 +175,59 @@ footer{
 
 <nav>
 <a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#workflow">Workflow</a>
 <a href="#metrics">Metrics</a>
-<a href="#pipeline">CI/CD</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <header>
-<div class="terminal">
-<div class="typing" id="typing"></div>
-<div class="clock" id="clock"></div>
-</div>
+<h1>Snehal Hingane</h1>
+<p>Senior DevOps Engineer specializing in Cloud Architecture, CI/CD Automation, Infrastructure as Code, and Kubernetes orchestration.</p>
 </header>
 
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
 <p>
-Senior DevOps Engineer specializing in AWS cloud architecture,
-CI/CD automation, Kubernetes orchestration, Infrastructure as Code,
-and enterprise system reliability.
+Experienced DevOps Engineer with strong background in AWS cloud environments,
+designing scalable infrastructure, implementing secure CI/CD pipelines,
+automating deployments using Terraform, and optimizing enterprise production systems.
 </p>
 </div>
 </section>
 
+<section id="skills">
+<h2>Technical Stack</h2>
+<div class="card">
+<p>AWS • Docker • Kubernetes • Terraform • Jenkins • GitHub Actions • Linux • Bash • Monitoring & Logging • CI/CD Automation</p>
+</div>
+</section>
+
+<section id="workflow">
+<h2>GitHub Actions Workflow</h2>
+<div class="workflow">
+<div class="job">Checkout Code</div>
+<div class="job">Build</div>
+<div class="job">Unit Test</div>
+<div class="job status-running">Deploy</div>
+<div class="job">Production</div>
+</div>
+</section>
+
 <section id="metrics">
-<h2>DevOps Live Metrics</h2>
+<h2>DevOps Metrics</h2>
 <div class="metrics">
 <div class="metric">
-<h3 id="exp">0</h3>
+<h3>5+</h3>
 <p>Years Experience</p>
 </div>
 <div class="metric">
-<h3>50+</h3>
-<p>CI/CD Pipelines Built</p>
+<h3>60+</h3>
+<p>CI/CD Pipelines</p>
 </div>
 <div class="metric">
-<h3>100+</h3>
+<h3>150+</h3>
 <p>Production Deployments</p>
 </div>
 <div class="metric">
@@ -225,62 +237,18 @@ and enterprise system reliability.
 </div>
 </section>
 
-<section id="pipeline">
-<h2>CI/CD Pipeline</h2>
-<div class="pipeline">
-<div class="stage">Code</div>
-<div class="stage">Build</div>
-<div class="stage">Test</div>
-<div class="stage">Deploy</div>
-<div class="stage">Monitor</div>
-</div>
-</section>
-
 <section id="contact">
 <h2>Contact</h2>
 <div class="card">
 <p>Email: snehal@example.com</p>
 <p>LinkedIn: linkedin.com/in/snehal</p>
+<p>GitHub: github.com/yourusername</p>
 </div>
 </section>
 
 <footer>
-© 2026 Snehal Hingane | DevOps Engineering Portfolio 🚀
+© 2026 Snehal Hingane | Built with GitHub Actions Inspired Theme 🚀
 </footer>
-
-<script>
-// Typing Effect
-const text = "$ whoami\nSnehal Hingane\n$ role\nSenior DevOps Engineer\n$ skills\nAWS | Kubernetes | Terraform | Jenkins | Docker\n";
-let i = 0;
-function typing(){
-    if(i < text.length){
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing,30);
-    }
-}
-typing();
-
-// Live Clock
-function updateClock(){
-    const now = new Date();
-    document.getElementById("clock").innerHTML = "Local Time: " + now.toLocaleTimeString();
-}
-setInterval(updateClock,1000);
-updateClock();
-
-// Experience Counter
-let exp = 0;
-let experienceYears = 5; // change as per your real experience
-let interval = setInterval(()=>{
-    if(exp < experienceYears){
-        exp++;
-        document.getElementById("exp").innerText = exp;
-    } else {
-        clearInterval(interval);
-    }
-},500);
-</script>
 
 </body>
 </html>
