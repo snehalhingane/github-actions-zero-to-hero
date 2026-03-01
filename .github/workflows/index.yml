@@ -1,12 +1,24 @@
-name: Hello
+#Name of your wokrflow
+name: Details
 
+#Push changes on main branch
 on:
   push:
     branches: [main]
 
 jobs:
+#This is job 1
   greet:
     runs-on: ubuntu-latest
+    #Steps inside jobs
     steps:
       - name: hello users
         run: echo "Hello Snehal"
+
+  #This is job 2      
+  show-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: versions
+        run: docker --version && python --version
+  
