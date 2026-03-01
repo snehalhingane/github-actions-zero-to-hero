@@ -1,11 +1,17 @@
 name: CICD
 
 on:
-  push:
-    branches: [main]
-    #when .html file change then workflow will run
-    paths:
-      - '**.html'
+  workflow_dispatch:
+    inputs:
+      environments:
+        description: This is Environment variable trigger when inputs provides
+        default: 'dev'
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+          - stagging
 
 jobs:
   Code:
@@ -26,6 +32,7 @@ jobs:
       - name: Test code
         run: echo "code Test"
   Deploy:
+    if: inputs.environments == 'dev'
     needs: [Code,Build,Test]
     runs-on: ubuntu-latest
     steps:
